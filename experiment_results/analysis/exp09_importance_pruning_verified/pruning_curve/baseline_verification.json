@@ -1,0 +1,206 @@
+{
+  "bike": {
+    "scene": "bike",
+    "num_val_views": 4,
+    "per_image": [
+      {
+        "val_idx": 0,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      },
+      {
+        "val_idx": 1,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      },
+      {
+        "val_idx": 2,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      },
+      {
+        "val_idx": 3,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      }
+    ],
+    "baseline_metrics": {
+      "psnr": 20.584558486938477,
+      "ssim": 0.8177914619445801,
+      "lpips": 0.20876087248325348
+    },
+    "reference_metrics": {
+      "psnr": 20.584558486938477,
+      "ssim": 0.8177914619445801,
+      "lpips": 0.2087607979774475
+    },
+    "metric_diffs": {
+      "psnr": 0.0,
+      "ssim": 0.0,
+      "lpips": 7.450580596923828e-08
+    },
+    "baseline_match": true,
+    "critical_ratio": 0.0
+  },
+  "buu": {
+    "scene": "buu",
+    "num_val_views": 3,
+    "per_image": [
+      {
+        "val_idx": 0,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      },
+      {
+        "val_idx": 1,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      },
+      {
+        "val_idx": 2,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      }
+    ],
+    "baseline_metrics": {
+      "psnr": 19.233976364135742,
+      "ssim": 0.8464831709861755,
+      "lpips": 0.2817710340023041
+    },
+    "reference_metrics": {
+      "psnr": 19.233976364135742,
+      "ssim": 0.8464831709861755,
+      "lpips": 0.28177088499069214
+    },
+    "metric_diffs": {
+      "psnr": 0.0,
+      "ssim": 0.0,
+      "lpips": 1.4901161193847656e-07
+    },
+    "baseline_match": true,
+    "critical_ratio": 0.0
+  },
+  "chair": {
+    "scene": "chair",
+    "num_val_views": 5,
+    "per_image": [
+      {
+        "val_idx": 0,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      },
+      {
+        "val_idx": 1,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      },
+      {
+        "val_idx": 2,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      },
+      {
+        "val_idx": 3,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      },
+      {
+        "val_idx": 4,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      }
+    ],
+    "baseline_metrics": {
+      "psnr": 19.509828567504883,
+      "ssim": 0.8253380656242371,
+      "lpips": 0.24441960453987122
+    },
+    "reference_metrics": {
+      "psnr": 19.509828567504883,
+      "ssim": 0.8253380656242371,
+      "lpips": 0.24441967904567719
+    },
+    "metric_diffs": {
+      "psnr": 0.0,
+      "ssim": 0.0,
+      "lpips": -7.450580596923828e-08
+    },
+    "baseline_match": true,
+    "critical_ratio": 0.0
+  },
+  "sofa": {
+    "scene": "sofa",
+    "num_val_views": 4,
+    "per_image": [
+      {
+        "val_idx": 0,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      },
+      {
+        "val_idx": 1,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      },
+      {
+        "val_idx": 2,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      },
+      {
+        "val_idx": 3,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      }
+    ],
+    "baseline_metrics": {
+      "psnr": 19.534772872924805,
+      "ssim": 0.8483778834342957,
+      "lpips": 0.21988189220428467
+    },
+    "reference_metrics": {
+      "psnr": 19.534772872924805,
+      "ssim": 0.8483778834342957,
+      "lpips": 0.21988166868686676
+    },
+    "metric_diffs": {
+      "psnr": 0.0,
+      "ssim": 0.0,
+      "lpips": 2.2351741790771484e-07
+    },
+    "baseline_match": true,
+    "critical_ratio": 0.0
+  }
+}

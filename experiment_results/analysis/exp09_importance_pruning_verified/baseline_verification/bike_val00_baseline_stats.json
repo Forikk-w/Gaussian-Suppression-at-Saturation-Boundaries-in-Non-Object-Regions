@@ -1,0 +1,20 @@
+{
+  "scene": "bike",
+  "val_idx": 0,
+  "baseline_path": "/data2/wd/workspace/experiments/luminance_gs_analysis/exp9_baseline_check/bike_val00_baseline_render.png",
+  "reference_path": "/data2/wd/workspace/experiments/luminance_gs/bike_over_exp/renders/val_0000_enh.png",
+  "render_shape": [
+    374,
+    499,
+    3
+  ],
+  "reference_shape": [
+    374,
+    499,
+    3
+  ],
+  "equal": true,
+  "max_abs_diff": 0,
+  "mean_abs_diff": 0.0,
+  "num_diff_pixels": 0
+}

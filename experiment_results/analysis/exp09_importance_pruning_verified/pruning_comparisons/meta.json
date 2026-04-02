@@ -1,0 +1,12 @@
+{
+  "scene_prune_ratios": {
+    "bike": 0.7,
+    "buu": 0.9,
+    "chair": 0.9,
+    "sofa": 0.6
+  },
+  "importance_csv": "/data2/wd/workspace/experiments/luminance_gs_analysis/exp7_importance_pruning/exp7_importance_scores.csv",
+  "mask_mode": "keep gaussian count fixed; set pruned opacity logits to -100.0",
+  "started_at": "2026-04-02 13:02:58",
+  "finished_at": "2026-04-02 13:03:02"
+}

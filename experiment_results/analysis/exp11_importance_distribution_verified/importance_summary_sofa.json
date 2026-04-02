@@ -1,0 +1,199 @@
+{
+  "scene": "sofa",
+  "num_gaussians": 67585,
+  "num_train_views": 29,
+  "tiny_threshold": 0.004688,
+  "baseline_verification": {
+    "scene": "sofa",
+    "num_val_views": 4,
+    "per_image": [
+      {
+        "val_idx": 0,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      },
+      {
+        "val_idx": 1,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      },
+      {
+        "val_idx": 2,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      },
+      {
+        "val_idx": 3,
+        "equal": true,
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0,
+        "num_diff_pixels": 0
+      }
+    ],
+    "baseline_metrics": {
+      "psnr": 19.534772872924805,
+      "ssim": 0.8483778834342957,
+      "lpips": 0.21988189220428467
+    },
+    "reference_metrics": {
+      "psnr": 19.534772872924805,
+      "ssim": 0.8483778834342957,
+      "lpips": 0.21988166868686676
+    },
+    "metric_diffs": {
+      "psnr": 0.0,
+      "ssim": 0.0,
+      "lpips": 2.2351741790771484e-07
+    },
+    "baseline_match": true
+  },
+  "importance_zero_count": 899,
+  "importance_zero_ratio": 0.013301768143818895,
+  "nonzero_count": 66686,
+  "nonzero_ratio": 0.9866982318561811,
+  "nonzero_quantiles": {
+    "min": 4.665583356228203e-07,
+    "p1": 0.0007229952217252412,
+    "p10": 0.09431048583616575,
+    "median": 4.48847488500081,
+    "p90": 98.91036925196049,
+    "p99": 1520.147620020402,
+    "max": 51061.834911723534
+  },
+  "covered_views_zero_count": 899,
+  "covered_views_zero_ratio": 0.013301768143818895,
+  "covered_views_mean": 25.02627802027077,
+  "covered_views_max": 29,
+  "covered_views_distribution": {
+    "0": {
+      "count": 899,
+      "ratio": 0.013301768143818895
+    },
+    "1": {
+      "count": 1007,
+      "ratio": 0.014899755862987349
+    },
+    "2": {
+      "count": 587,
+      "ratio": 0.008685359177332248
+    },
+    "3": {
+      "count": 715,
+      "ratio": 0.010579270548198565
+    },
+    "4": {
+      "count": 530,
+      "ratio": 0.007841976769993342
+    },
+    "5": {
+      "count": 481,
+      "ratio": 0.00711696382333358
+    },
+    "6": {
+      "count": 385,
+      "ratio": 0.005696530295183843
+    },
+    "7": {
+      "count": 619,
+      "ratio": 0.009158837020048827
+    },
+    "8": {
+      "count": 399,
+      "ratio": 0.005903676851372346
+    },
+    "9": {
+      "count": 520,
+      "ratio": 0.007694014944144411
+    },
+    "10": {
+      "count": 418,
+      "ratio": 0.006184804320485315
+    },
+    "11": {
+      "count": 351,
+      "ratio": 0.005193460087297477
+    },
+    "12": {
+      "count": 435,
+      "ratio": 0.006436339424428498
+    },
+    "13": {
+      "count": 486,
+      "ratio": 0.007190944736258045
+    },
+    "14": {
+      "count": 732,
+      "ratio": 0.010830805652141747
+    },
+    "15": {
+      "count": 622,
+      "ratio": 0.009203225567803506
+    },
+    "16": {
+      "count": 531,
+      "ratio": 0.007856772952578235
+    },
+    "17": {
+      "count": 642,
+      "ratio": 0.009499149219501369
+    },
+    "18": {
+      "count": 881,
+      "ratio": 0.01303543685729082
+    },
+    "19": {
+      "count": 644,
+      "ratio": 0.009528741584671156
+    },
+    "20": {
+      "count": 999,
+      "ratio": 0.014781386402308205
+    },
+    "21": {
+      "count": 443,
+      "ratio": 0.006554708885107642
+    },
+    "22": {
+      "count": 531,
+      "ratio": 0.007856772952578235
+    },
+    "23": {
+      "count": 879,
+      "ratio": 0.013005844492121032
+    },
+    "24": {
+      "count": 434,
+      "ratio": 0.006421543241843604
+    },
+    "25": {
+      "count": 784,
+      "ratio": 0.011600207146556189
+    },
+    "26": {
+      "count": 1091,
+      "ratio": 0.01614263520011837
+    },
+    "27": {
+      "count": 1098,
+      "ratio": 0.01624620847821262
+    },
+    "28": {
+      "count": 1654,
+      "ratio": 0.024472885995413182
+    },
+    "29": {
+      "count": 47788,
+      "ratio": 0.7070799733668713
+    }
+  },
+  "tiny_gaussian_count": 8789,
+  "normal_gaussian_count": 58796,
+  "tiny_importance_zero_ratio": 0.008647172602116282,
+  "normal_importance_zero_ratio": 0.013997550853799579
+}

@@ -1,0 +1,131 @@
+{
+  "scenes": [
+    "bike",
+    "buu",
+    "chair",
+    "sofa"
+  ],
+  "sat_pixel_threshold": 250,
+  "sat_dilate_radius": 3,
+  "ellipse_sigma_cutoff": 4.5,
+  "started_at": "2026-04-02 17:56:36",
+  "alignment_report": {
+    "bike": {
+      "max_abs_camtoworld_diff": 0.0,
+      "max_abs_K_diff": 0.0,
+      "num_val_views": 4,
+      "low_dir": "/data2/wd/workspace/experiments/luminance_gs/bike_low",
+      "over_dir": "/data2/wd/workspace/experiments/luminance_gs/bike_over_exp",
+      "nearest_train_records": [
+        {
+          "val_idx": 0,
+          "nearest_train_idx": 34,
+          "nearest_train_distance": 0.24872806668281555
+        },
+        {
+          "val_idx": 1,
+          "nearest_train_idx": 5,
+          "nearest_train_distance": 0.014885267242789268
+        },
+        {
+          "val_idx": 2,
+          "nearest_train_idx": 8,
+          "nearest_train_distance": 0.22481735050678253
+        },
+        {
+          "val_idx": 3,
+          "nearest_train_idx": 28,
+          "nearest_train_distance": 0.041845325380563736
+        }
+      ]
+    },
+    "buu": {
+      "max_abs_camtoworld_diff": 0.0,
+      "max_abs_K_diff": 0.0,
+      "num_val_views": 3,
+      "low_dir": "/data2/wd/workspace/experiments/luminance_gs/buu_low",
+      "over_dir": "/data2/wd/workspace/experiments/luminance_gs/buu_over_exp",
+      "nearest_train_records": [
+        {
+          "val_idx": 0,
+          "nearest_train_idx": 7,
+          "nearest_train_distance": 0.18212546408176422
+        },
+        {
+          "val_idx": 1,
+          "nearest_train_idx": 19,
+          "nearest_train_distance": 0.20395362377166748
+        },
+        {
+          "val_idx": 2,
+          "nearest_train_idx": 6,
+          "nearest_train_distance": 0.07594814151525497
+        }
+      ]
+    },
+    "chair": {
+      "max_abs_camtoworld_diff": 0.0,
+      "max_abs_K_diff": 0.0,
+      "num_val_views": 5,
+      "low_dir": "/data2/wd/workspace/experiments/luminance_gs/chair_low",
+      "over_dir": "/data2/wd/workspace/experiments/luminance_gs/chair_over_exp_rerun",
+      "nearest_train_records": [
+        {
+          "val_idx": 0,
+          "nearest_train_idx": 19,
+          "nearest_train_distance": 0.03166818618774414
+        },
+        {
+          "val_idx": 1,
+          "nearest_train_idx": 7,
+          "nearest_train_distance": 0.1588776707649231
+        },
+        {
+          "val_idx": 2,
+          "nearest_train_idx": 39,
+          "nearest_train_distance": 0.07713937759399414
+        },
+        {
+          "val_idx": 3,
+          "nearest_train_idx": 20,
+          "nearest_train_distance": 0.37605565786361694
+        },
+        {
+          "val_idx": 4,
+          "nearest_train_idx": 5,
+          "nearest_train_distance": 0.20029689371585846
+        }
+      ]
+    },
+    "sofa": {
+      "max_abs_camtoworld_diff": 0.0,
+      "max_abs_K_diff": 0.0,
+      "num_val_views": 4,
+      "low_dir": "/data2/wd/workspace/experiments/luminance_gs/sofa_low_rerun",
+      "over_dir": "/data2/wd/workspace/experiments/luminance_gs/sofa_over_exp_rerun",
+      "nearest_train_records": [
+        {
+          "val_idx": 0,
+          "nearest_train_idx": 22,
+          "nearest_train_distance": 0.01869206503033638
+        },
+        {
+          "val_idx": 1,
+          "nearest_train_idx": 16,
+          "nearest_train_distance": 0.701881468296051
+        },
+        {
+          "val_idx": 2,
+          "nearest_train_idx": 14,
+          "nearest_train_distance": 0.0208479855209589
+        },
+        {
+          "val_idx": 3,
+          "nearest_train_idx": 21,
+          "nearest_train_distance": 0.01697135902941227
+        }
+      ]
+    }
+  },
+  "finished_at": "2026-04-02 17:56:47"
+}

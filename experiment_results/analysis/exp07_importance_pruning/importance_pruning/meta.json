@@ -1,0 +1,18 @@
+{
+  "scenes": [
+    "bike",
+    "buu",
+    "chair",
+    "sofa"
+  ],
+  "thresholds": [
+    245,
+    250,
+    252
+  ],
+  "sat_dilate_radius": 3,
+  "tile_size": 16,
+  "importance_batch_per_iter": 64,
+  "started_at": "2026-04-02 11:27:00",
+  "finished_at": "2026-04-02 11:27:09"
+}

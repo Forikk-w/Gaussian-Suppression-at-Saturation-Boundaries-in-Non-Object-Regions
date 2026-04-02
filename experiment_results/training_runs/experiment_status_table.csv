@@ -1,0 +1,11 @@
+dataset,mode,overall_status,train_checkpoint_status,train_stats_status,test_metric_status,test_render_status,psnr,ssim,lpips,ellipse_time_s_per_image,num_gs,notes
+bike,low,done,"2/2 complete","2/2 complete",complete,"4 low + 4 enh",15.730801582336426,0.7575918436050415,0.3877567946910858,0.003424704074859619,182135,final
+bike,over_exp,done,"2/2 complete","2/2 complete",complete,"4 low + 4 enh",20.584558486938477,0.8177914619445801,0.2087607979774475,0.011409938335418701,263103,final
+buu,low,done,"2/2 complete","2/2 complete",complete,"3 low + 3 enh",21.042713165283203,0.9162596464157104,0.17832235991954803,0.010489463806152344,79423,final
+buu,over_exp,done,"2/2 complete","2/2 complete",complete,"3 low + 3 enh",19.233976364135742,0.8464831709861755,0.28177088499069214,0.0024536450703938804,91968,final
+chair,low,done,"2/2 complete","2/2 complete",complete,"5 low + 5 enh",17.54303550720215,0.8517309427261353,0.32433292269706726,0.009975814819335937,54998,final
+chair,over_exp,done,"2/2 complete","2/2 complete",complete,"5 low + 5 enh",19.509828567504883,0.8253380656242371,0.24441967904567719,0.008942031860351562,107805,rerun_final
+shrub,low,done,"2/2 complete","2/2 complete",complete,"5 low + 5 enh",11.604792594909668,0.6141979098320007,0.2731611728668213,0.015279245376586915,838666,final
+shrub,over_exp,done,"2/2 complete","2/2 complete",complete,"5 low + 5 enh",15.848235130310059,0.7900686264038086,0.16191786527633667,0.0076043128967285155,1622017,rerun_final
+sofa,low,done,"2/2 complete","2/2 complete",complete,"4 low + 4 enh",23.31385040283203,0.9066015481948853,0.2532995045185089,0.0022148489952087402,39324,rerun_final
+sofa,over_exp,done,"2/2 complete","2/2 complete",complete,"4 low + 4 enh",19.534772872924805,0.8483778834342957,0.21988166868686676,0.002557814121246338,67585,rerun_final

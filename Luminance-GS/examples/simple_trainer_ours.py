@@ -117,6 +117,10 @@ class Config:
     reset_every: int = 3000
     # Refine GSs every this steps
     refine_every: int = 100
+    # Record densification clone/split events on the training image plane.
+    record_densification_events: bool = False
+    # Optional directory to store densification event maps.
+    densification_event_dir: Optional[str] = None
     # Contrast Level
     constrast_level: float = 0.5
 
@@ -176,6 +180,118 @@ if cfg.exp_name in ["low", "over_exp"]:
     from datasets.colmap import Dataset, Parser
 else:
     from datasets.colmap_mip360 import Dataset, Parser
+
+
+class DensificationEventRecorder:
+    """Accumulate densification clone/split events on the image plane."""
+
+    def __init__(self, output_dir: str, trainset: Dataset):
+        sample = trainset[0]
+        height, width = sample["image"].shape[:2]
+        self.output_dir = output_dir
+        self.height = int(height)
+        self.width = int(width)
+        self.train_view_count = len(trainset)
+        self.event_map_total = np.zeros((self.height, self.width), dtype=np.int64)
+        self.event_map_clone = np.zeros((self.height, self.width), dtype=np.int64)
+        self.event_map_split = np.zeros((self.height, self.width), dtype=np.int64)
+        self.densification_trigger_count = 0
+        self.clone_events = 0
+        self.split_events = 0
+        self.clone_selected = 0
+        self.split_selected = 0
+        self.event_records = []
+
+    def mark_trigger(self, step: int):
+        self.densification_trigger_count += 1
+        self.event_records.append({"step": int(step)})
+
+    @staticmethod
+    def _project_points(
+        means3d: Tensor,
+        camtoworld: Tensor,
+        K: Tensor,
+        width: int,
+        height: int,
+    ) -> Tuple[np.ndarray, np.ndarray]:
+        world_to_cam = torch.linalg.inv(camtoworld)
+        points_cam = means3d @ world_to_cam[:3, :3].T + world_to_cam[:3, 3]
+        valid = points_cam[:, 2] > 0
+        if not torch.any(valid):
+            return np.empty(0, dtype=np.int64), np.empty(0, dtype=np.int64)
+        points_cam = points_cam[valid]
+        proj = points_cam @ K.T
+        us = torch.round(proj[:, 0] / proj[:, 2]).to(torch.int64)
+        vs = torch.round(proj[:, 1] / proj[:, 2]).to(torch.int64)
+        valid = (us >= 0) & (us < width) & (vs >= 0) & (vs < height)
+        if not torch.any(valid):
+            return np.empty(0, dtype=np.int64), np.empty(0, dtype=np.int64)
+        return (
+            vs[valid].detach().cpu().numpy().astype(np.int64),
+            us[valid].detach().cpu().numpy().astype(np.int64),
+        )
+
+    def record(
+        self,
+        event_type: str,
+        means3d: Tensor,
+        mask: Tensor,
+        camtoworlds: Tensor,
+        Ks: Tensor,
+        width: int,
+        height: int,
+    ) -> None:
+        sel = torch.where(mask)[0]
+        selected_count = int(sel.numel())
+        if event_type == "clone":
+            self.clone_selected += selected_count
+        else:
+            self.split_selected += selected_count
+        if selected_count == 0:
+            return
+
+        selected_means = means3d[sel].detach()
+        valid_events = 0
+        for cam_idx in range(camtoworlds.shape[0]):
+            vs, us = self._project_points(
+                selected_means,
+                camtoworlds[cam_idx].detach(),
+                Ks[cam_idx].detach(),
+                width,
+                height,
+            )
+            if vs.size == 0:
+                continue
+            np.add.at(self.event_map_total, (vs, us), 1)
+            if event_type == "clone":
+                np.add.at(self.event_map_clone, (vs, us), 1)
+            else:
+                np.add.at(self.event_map_split, (vs, us), 1)
+            valid_events += int(vs.size)
+
+        if event_type == "clone":
+            self.clone_events += valid_events
+        else:
+            self.split_events += valid_events
+
+    def save(self):
+        os.makedirs(self.output_dir, exist_ok=True)
+        np.save(os.path.join(self.output_dir, "event_map_total.npy"), self.event_map_total)
+        np.save(os.path.join(self.output_dir, "event_map_clone.npy"), self.event_map_clone)
+        np.save(os.path.join(self.output_dir, "event_map_split.npy"), self.event_map_split)
+        meta = {
+            "total_events": int(self.event_map_total.sum()),
+            "clone_events": int(self.event_map_clone.sum()),
+            "split_events": int(self.event_map_split.sum()),
+            "densification_trigger_count": int(self.densification_trigger_count),
+            "train_view_count": int(self.train_view_count),
+            "image_height": int(self.height),
+            "image_width": int(self.width),
+            "clone_selected": int(self.clone_selected),
+            "split_selected": int(self.split_selected),
+        }
+        with open(os.path.join(self.output_dir, "event_map_meta.json"), "w") as f:
+            json.dump(meta, f, indent=2)
 
 
 def create_splats_with_optimizers(
@@ -281,6 +397,12 @@ class Runner:
         )
         self.valset = Dataset(self.parser, split="val") # Validation Set
         self.scene_scale = self.parser.scene_scale * 1.1 * cfg.global_scale
+        self.event_recorder = None
+        if cfg.record_densification_events:
+            event_dir = cfg.densification_event_dir or os.path.join(
+                cfg.result_dir, "densification_event_maps"
+            )
+            self.event_recorder = DensificationEventRecorder(event_dir, self.trainset)
         
         # Model
         feature_dim = 32 if cfg.app_opt else None
@@ -660,10 +782,31 @@ class Runner:
                         <= cfg.grow_scale3d * self.scene_scale
                     )
                     is_dupli = is_grad_high & is_small
+                    is_split_base = is_grad_high & ~is_small
+                    if self.event_recorder is not None:
+                        self.event_recorder.mark_trigger(step)
+                        self.event_recorder.record(
+                            "clone",
+                            self.splats["means3d"],
+                            is_dupli,
+                            camtoworlds,
+                            Ks,
+                            width,
+                            height,
+                        )
+                        self.event_recorder.record(
+                            "split",
+                            self.splats["means3d"],
+                            is_split_base,
+                            camtoworlds,
+                            Ks,
+                            width,
+                            height,
+                        )
                     n_dupli = is_dupli.sum().item()
                     self.refine_duplicate(is_dupli)
 
-                    is_split = is_grad_high & ~is_small
+                    is_split = is_split_base
                     is_split = torch.cat(
                         [
                             is_split,
@@ -774,6 +917,9 @@ class Runner:
                 self.viewer.state.num_train_rays_per_sec = num_train_rays_per_sec
                 # Update the scene.
                 self.viewer.update(step, num_train_rays_per_step)
+
+        if self.event_recorder is not None:
+            self.event_recorder.save()
 
     @torch.no_grad()
     def update_running_stats(self, info: Dict):

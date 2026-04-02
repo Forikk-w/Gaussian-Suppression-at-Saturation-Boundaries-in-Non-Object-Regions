@@ -1,0 +1,11 @@
+{
+  "total_events": 327257,
+  "clone_events": 165414,
+  "split_events": 161843,
+  "densification_trigger_count": 74,
+  "train_view_count": 36,
+  "image_height": 374,
+  "image_width": 499,
+  "clone_selected": 209910,
+  "split_selected": 200039
+}

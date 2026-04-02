@@ -1,0 +1,14 @@
+{
+  "scenes": [
+    "bike",
+    "buu",
+    "chair",
+    "sofa"
+  ],
+  "tiny_threshold": 0.004688,
+  "tile_size": 16,
+  "importance_batch_per_iter": 64,
+  "baseline_metric_tol": 1e-05,
+  "started_at": "2026-04-02 14:09:57",
+  "finished_at": "2026-04-02 14:10:07"
+}

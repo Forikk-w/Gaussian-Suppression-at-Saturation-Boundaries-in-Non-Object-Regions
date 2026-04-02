@@ -1,0 +1,57 @@
+{
+  "tiny_scale_threshold_definition": "global percentile P10 of scale_mean across all 10 datasets",
+  "tiny_scale_threshold_value": 0.004688415149489732,
+  "opacity_threshold_for_low_contribution": 0.1,
+  "datasets": [
+    [
+      "bike",
+      "low",
+      "bike_low"
+    ],
+    [
+      "bike",
+      "over_exp",
+      "bike_over_exp"
+    ],
+    [
+      "buu",
+      "low",
+      "buu_low"
+    ],
+    [
+      "buu",
+      "over_exp",
+      "buu_over_exp"
+    ],
+    [
+      "chair",
+      "low",
+      "chair_low"
+    ],
+    [
+      "chair",
+      "over_exp",
+      "chair_over_exp_rerun"
+    ],
+    [
+      "shrub",
+      "low",
+      "shrub_low"
+    ],
+    [
+      "shrub",
+      "over_exp",
+      "shrub_over_exp_rerun"
+    ],
+    [
+      "sofa",
+      "low",
+      "sofa_low_rerun"
+    ],
+    [
+      "sofa",
+      "over_exp",
+      "sofa_over_exp_rerun"
+    ]
+  ]
+}

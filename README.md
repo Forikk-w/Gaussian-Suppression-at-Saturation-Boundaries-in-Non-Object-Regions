@@ -26,6 +26,10 @@
 cd Luminance-GS
 ```
 
+### Experiment Results
+
+The curated local experiment archive is stored in `experiment_results/` at the repository root, next to `README.md` and `Luminance-GS/`.
+
 ### Citation:
 ```
  @inproceedings{cui_luminance_gs,

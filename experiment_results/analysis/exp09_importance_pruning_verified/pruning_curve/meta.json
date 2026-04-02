@@ -1,0 +1,30 @@
+{
+  "scenes": [
+    "bike",
+    "buu",
+    "chair",
+    "sofa"
+  ],
+  "prune_ratios": [
+    0.0,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "importance_csv": "/data2/wd/workspace/experiments/luminance_gs_analysis/exp7_importance_pruning/exp7_importance_scores.csv",
+  "mask_mode": "keep gaussian count fixed; set pruned opacity logits to -100.0",
+  "baseline_metric_tol": 1e-05,
+  "critical_rule": {
+    "delta_psnr_min": -0.01,
+    "delta_ssim_min": -0.001,
+    "delta_lpips_max": 0.001,
+    "compare_val_idx": 0
+  },
+  "started_at": "2026-04-02 13:13:38",
+  "finished_at": "2026-04-02 13:14:00"
+}
